@@ -1,10 +1,17 @@
 server:
   port: 8081
+  servlet:
+    context-path: /community
+
+# community
+community:
+  path:
+    domain: http://localhost:8081
+
 
 spring:
   thymeleaf:
     cache: false
-
 
   #数据库配置
   datasource:
@@ -12,6 +19,21 @@ spring:
     url: jdbc:mysql://localhost:3306/community?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: 105105
+
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: yzr15045062426@163.com
+    password: CUGZYVTMSWYZUAJP
+    protocol: smtps
+    properties:
+      mail:
+        smtl:
+          auth: true
+        smtp:
+          starttls:
+            enable: true
+            required: true
 
 # mybatis 配置
 mybatis:
@@ -31,3 +53,4 @@ mybatis:
 logging:
   level:
     com.palpitate.study.community.mapper: debug
+

@@ -25,12 +25,12 @@ public class HomeController{
     @Autowired
     private UserServiceImpl userService;
 
-    @RequestMapping("/homePage")
+    @RequestMapping("/index")
     public String getIndexPage(Model model, Page page){
         //方法调用前 springmvc 会自动实例化model 和page 并将page注入model
         //所以在thymeleaf中不需要再model.addA() 可以直接访问page
         page.setRows(discussPostService.findDiscussPostRows(0));
-        page.setPath("/homePage");
+        page.setPath("/index");
 
         List<DiscussPost> list = discussPostService.findDiscussPosts(0, page.getOffset(), page.getLimit());
         List<Map<String,Object>> discussPosts=new ArrayList<>();
@@ -44,6 +44,6 @@ public class HomeController{
             }
         }
         model.addAttribute("discussPosts",discussPosts);
-        return "homePage";
+        return "index";
     }
 }

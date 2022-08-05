@@ -1,8 +1,7 @@
 package com.palpitate.study.community.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import com.palpitate.study.community.entity.DiscussPost;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,16 +23,16 @@ public interface DiscussPostMapper {
     DiscussPost selectDiscussById(int id);
 
     //修改帖子评论数
-    int updateCommentCount(int discussPortId,int commentCount);
+    int updateCommentCount(@Param("discussPortId")int discussPortId,@Param("commentCount")int commentCount);
 
     //置顶，修改帖子的类型type
-    int updateDiscussType(int discussPortId,int type);
+    int updateDiscussType(@Param("discussPortId")int discussPortId,@Param("type")int type);
 
     //加精，删除，修改帖子的状态
-    int updateDiscussStatus(int discussPortId,int status);
+    int updateDiscussStatus(@Param("discussPortId")int discussPortId,@Param("status")int status);
 
     //修改帖子的分数
-    int updateDiscussScore(int postId,double score);
+    int updateDiscussScore(@Param("postId")int postId,@Param("score")double score);
 
 
 }
