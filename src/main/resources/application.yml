@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  thymeleaf:
+    cache: false
+
+
+  #数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 105105
+
+# mybatis 配置
+mybatis:
+  # 配置mapper.xml映射文件
+  mapper-locations: classpath:/static/mapper/*.xml
+  #让user_Txx与userTxx对应
+  configuration:
+    # 驼峰命名的映射
+    map-underscore-to-camel-case: true
+    #主键自增，自动生成主键id（在插入操作后自动生成id）
+    use-generated-keys: true
+  # 配置Mybatis 数据返回类型别名（默认别名是类名）
+  type-aliases-package: com.palpitate.study.community.entity
+
+#logger
+# mybatis sql打印（方法接口所在的包）
+logging:
+  level:
+    com.palpitate.study.community.mapper: debug
